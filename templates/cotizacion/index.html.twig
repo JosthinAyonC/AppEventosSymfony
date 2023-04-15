@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cotizacion index{% endblock %}
+
+{% block body %}
+    <h1>Cotizacion index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdCotizacion</th>
+                <th>CostoCotizacion</th>
+                <th>CantItems</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cotizacion in cotizacions %}
+            <tr>
+                <td>{{ cotizacion.idCotizacion }}</td>
+                <td>$ {{ cotizacion.costoCotizacion }}</td>
+                <td>{{ cotizacion.cantItems }}</td>
+                <td>
+                    <a href="{{ path('app_cotizacion_show', {'idCotizacion': cotizacion.idCotizacion}) }}">show</a>
+                    <a href="{{ path('app_cotizacion_edit', {'idCotizacion': cotizacion.idCotizacion}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cotizacion_new') }}">Create new</a>
+{% endblock %}

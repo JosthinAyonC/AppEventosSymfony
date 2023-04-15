@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cotizacion{% endblock %}
+
+{% block body %}
+    <h1>Cotizacion</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdCotizacion</th>
+                <td>{{ cotizacion.idCotizacion }}</td>
+            </tr>
+            <tr>
+                <th>CostoCotizacion</th>
+                <td>{{ cotizacion.costoCotizacion }}</td>
+            </tr>
+            <tr>
+                <th>CantItems</th>
+                <td>{{ cotizacion.cantItems }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cotizacion_index') }}">back to list</a>
+
+    <a href="{{ path('app_cotizacion_edit', {'idCotizacion': cotizacion.idCotizacion}) }}">edit</a>
+
+    {{ include('cotizacion/_delete_form.html.twig') }}
+{% endblock %}

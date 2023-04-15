@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cotizacion{% endblock %}
+
+{% block body %}
+    <h1>Create new Cotizacion</h1>
+
+    {{ include('cotizacion/_form.html.twig') }}
+
+    <a class="btn btn-primary m-2"  href="{{ path('app_cotizacion_index') }}">back to list</a>
+    {% for flash_message in app.session.flashbag.get('sucess') %}
+            <div class="alert alert-primary" role="alert">
+                {{ flash_message }}
+            </div>
+     
+    {% endfor %}
+{% endblock %}
